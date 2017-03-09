@@ -14,8 +14,8 @@ from modules import thinkstats2
 from collections import defaultdict
 
 
-def ReadFemResp(dct_file='2002FemResp.dct',
-                dat_file='2002FemResp.dat.gz',
+def ReadFemResp(dct_file='dictionaries/2002FemResp.dct',
+                dat_file='data/2002FemResp.dat.gz',
                 nrows=None):
     """Reads the NSFG respondent data.
 
@@ -63,13 +63,13 @@ def CleanFemPreg(df):
 
     # birthwgt_lb contains at least one bogus value (51 lbs)
     # replace with NaN
-    df.loc[df.birthwgt_lb > 20, 'birthwgt_lb'] = np.nan
+    df.loc[df.birthwgt_lb > 20,True, 'birthwgt_lb'] = np.nan
     
     # replace 'not ascertained', 'refused', 'don't know' with NaN
     na_vals = [97, 98, 99]
-    df.birthwgt_lb.replace(na_vals, np.nan, inplace=True)
-    df.birthwgt_oz.replace(na_vals, np.nan, inplace=True)
-    df.hpagelb.replace(na_vals, np.nan, inplace=True)
+    df.birthwgt_lb.replace(to_replace=na_vals, value=np.nan, inplace=True)
+    df.birthwgt_oz.replace(to_replace=na_vals, value=np.nan, inplace=True)
+    df.hpagelb.replace(to_replace=na_vals, value=np.nan, inplace=True)
 
     df.babysex.replace([7, 9], np.nan, inplace=True)
     df.nbrnaliv.replace([9], np.nan, inplace=True)

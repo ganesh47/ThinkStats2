@@ -14,12 +14,13 @@ import sys
 
 def main(script):
     """Tests the functions in this module.
-
     script: string script name
     """
     print('%s: All tests passed.' % script)
     df = nsfg.ReadFemPreg()
-    print(df)
+
+    print(df.pregordr[0])
+
 
 
 if __name__ == '__main__':
