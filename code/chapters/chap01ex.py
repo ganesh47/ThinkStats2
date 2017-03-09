@@ -7,11 +7,9 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 from __future__ import print_function
 
-import numpy as np
-import sys
+from modules import nsfg
 
-import nsfg
-import thinkstats2
+import sys
 
 
 def main(script):
@@ -20,6 +18,8 @@ def main(script):
     script: string script name
     """
     print('%s: All tests passed.' % script)
+    df = nsfg.ReadFemPreg()
+    print(df)
 
 
 if __name__ == '__main__':

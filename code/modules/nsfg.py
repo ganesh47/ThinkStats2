@@ -9,7 +9,7 @@ from __future__ import print_function, division
 
 import sys
 import numpy as np
-import thinkstats2
+from modules import thinkstats2
 
 from collections import defaultdict
 
@@ -38,8 +38,8 @@ def CleanFemResp(df):
     pass
 
 
-def ReadFemPreg(dct_file='2002FemPreg.dct',
-                dat_file='2002FemPreg.dat.gz'):
+def ReadFemPreg(dct_file='dictionaries/2002FemPreg.dct',
+                dat_file='data/2002FemPreg.dat.gz'):
     """Reads the NSFG pregnancy data.
 
     dct_file: string file name
